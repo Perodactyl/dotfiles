@@ -1,0 +1,4 @@
+# Global PATH file.
+
+# ~/bin (includes chezmoi)
+export PATH="~/bin:$PATH"

@@ -1,0 +1,3 @@
+# Run-Control for any standard shell
+
+export EDITOR="/bin/micro"
