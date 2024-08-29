@@ -1,15 +1,16 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
-$shell$username$git_branch$directory$jobs$status$character
+$shell$username$git_branch$directory$character
 """
-right_format = '($cmd_duration[](fg:prev_bg))'
+right_format = '($status$jobs$cmd_duration[](fg:prev_bg))'
 
 add_newline = false
 
 [shell]
 disabled = false
 style = "red"
+
 
 bash_indicator = "bash"
 fish_indicator = "fish"
@@ -18,8 +19,8 @@ powershell_indicator = "PS"
 format = '[]($style)[$indicator](bg:prev_fg)'
 
 [username]
-show_always = true
 style_user = "yellow"
+show_always = true
 format = '[](fg:prev_bg bg:$style)[$user](bg:prev_bg)'
 
 [git_branch]
@@ -29,22 +30,38 @@ symbol = ''
 
 [directory]
 style = 'blue'
-read_only_style = 'bg:$style fg:#ff3366'
 use_os_path_sep = false
 truncation_length = 4
 #truncation_symbol = "…/"
-read_only = ' 󱚮'
+read_only = ' 󱚮 '
+read_only_style = 'bg:$style fg:#ff3366'
 format = '[](fg:prev_bg bg:$style)[$read_only]($read_only_style)[$path](bg:prev_bg)'
 [directory.substitutions]
 "Downloads" = ""
 
+[character]
+format = '$symbol[](fg:prev_fg)'
+success_symbol = '[](fg:green bg:prev_bg)'
+error_symbol = '[](fg:bold red  bg:prev_bg)'
+
+
+# Right Format must be optional is it is missing in some terminals.
+# This config is specific to supported terminals
+
+
+[cmd_duration]
+min_time = 50
+style = "bright-blue"
+format = '[]($style bg:prev_bg)[󰅐 ](bg:prev_fg)[$duration](bg:prev_bg)'
+
 [jobs]
 symbol = '󱫩'
-style = 'bright-purple'
-format = '[](fg:prev_bg bg:$style)[$symbol( $number)](bg:prev_bg)'
+style = 'blue'
+format = '[]( $style bg:prev_bg)[$symbol $number](bg:$style)'
 
 [status]
 disabled = false
+# style = 'bg:red fg:#ffccaa'
 style = 'red'
 map_symbol = true
 
@@ -54,17 +71,4 @@ sigint_symbol = ''
 signal_symbol = ''
 symbol = ''
 
-format = '[ ](bg:prev_bg)[](fg:prev_bg bg:$style)[$symbol( $maybe_int) ](bg:prev_bg fg:#ffccaa)'
-
-[character]
-format = '$symbol '
-success_symbol = '[ ](fg:green bg:prev_bg)[](fg:bold green)'
-error_symbol = '[](fg:bold red)'
-
-
-# Right Format must be optional is it is missing in some terminals.
-
-[cmd_duration]
-min_time = 0
-style = "bright-blue"
-format = '[]($style)[󰅐 ](bg:prev_fg)[$duration](bg:prev_bg)'
+format = '[]($style bg:prev_bg)[$symbol ($maybe_int )](bg:$style)'

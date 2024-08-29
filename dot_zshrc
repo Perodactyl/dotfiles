@@ -1,0 +1,21 @@
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' auto-description 'Specify %d.'
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' format 'Completing %d'
+zstyle :compinstall filename '/home/peter/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+STARSHIP_CONFIG="/home/peter/.config/starship.rightfmt.toml"
+eval "$(starship init zsh)"
