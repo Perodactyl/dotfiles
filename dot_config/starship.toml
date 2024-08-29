@@ -1,6 +1,8 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
-format = '$shell$username$git_branch$directory$jobs$status$character'
+format = """
+[](fg:red inverted)$shell[](fg:prev_bg bg:yellow)$username[](fg:prev_bg bg:blue)$git_branch$directory$jobs$status$character
+"""
 right_format = ''
 
 add_newline = false
@@ -12,33 +14,32 @@ bash_indicator = "bash"
 fish_indicator = "fish"
 zsh_indicator  = "Zsh"
 powershell_indicator = "PS"
-style = "bg:#DA627D fg:#ffffff"
-format = '[](#DA627D inverted)[$indicator]($style)[](fg:#DA627D bg:#9A348E)'
+format = '[$indicator](bg:prev_fg)'
 
 [username]
 show_always = true
-style_user = "bg:#9A348E fg:#ffffff"
-format = '[$user]($style)[](bg:#9A348E fg:#06969A)'
+style_user = "bg:prev_bg"
+format = '[$user]($style)'
 
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)/]($style)'
+format = '[$symbol](bg:prev_bg)[$branch](bg:prev_bg)[/](bg:prev_bg)'
 symbol = ''
-style = 'bg:#06969A fg:bold fg:#F34F29'
+style = 'bg:prev_bg'
 
 [directory]
 use_os_path_sep = false
 truncation_length = 4
 #truncation_symbol = "…/"
-style = 'bg:#06969A fg:bold #ffffff'
+style = 'bg:prev_bg'
 read_only = ' 󱚮'
-read_only_style = 'bg:#06969A fg:#ff3366'
+read_only_style = 'bg:blue fg:#ff3366'
 format = '[$path]($style)[$read_only]($read_only_style)'
 [directory.substitutions]
 "Downloads" = ""
 
 [jobs]
 symbol = '󱫩 '
-style = 'bg:#06969A fg:bold fg:#ffffff'
+style = 'bg:prev_bg'
 format = '[ $symbol$number]($style)'
 
 [status]
@@ -52,9 +53,9 @@ sigint_symbol = ''
 signal_symbol = ''
 symbol = ''
 
-format = '[ ](bg:#06969A)[](bg:red fg:#06969A fg:bold)[$symbol$maybe_int ]($style)'
+format = '[ ](bg:prev_bg)[](bg:red fg:prev_bg)[$symbol( $maybe_int) ]($style)'
 
 [character]
 format = '$symbol '
-success_symbol = '[ ](fg:bold fg:green bg:#06969A)[](fg:bold green)'
+success_symbol = '[ ](fg:green bg:prev_bg)[](fg:bold green)'
 error_symbol = '[](fg:bold red)'

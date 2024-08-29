@@ -1,0 +1,57 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+$shell$username $directory$jobs$status$character
+"""
+right_format = ''
+
+add_newline = false
+
+[shell]
+disabled = false
+style = "bright-green bold"
+
+bash_indicator = "bash"
+fish_indicator = "fish"
+zsh_indicator  = "Zsh"
+powershell_indicator = "PS"
+format = '[$indicator]($style)'
+
+[username]
+style_root = "bright-red bold"
+style_user = "orange bold"
+format = ':[$user]($style)'
+
+[directory]
+use_os_path_sep = false
+truncation_length = 4
+# truncation_symbol = ".../"
+style = 'bright-blue bold'
+read_only = ' RO'
+read_only_style = 'red bold'
+format = '[$path]($style)[$read_only]($read_only_style)'
+[directory.substitutions]
+"Downloads" = ""
+
+[jobs]
+symbol = 'j'
+style = 'bg:prev_bg'
+format = '[ $symbol(:$number)]($style)'
+
+[status]
+disabled = false
+style = 'bright-red bold'
+map_symbol = true
+
+not_found_symbol = 'NF'
+not_executable_symbol = 'EXE'
+sigint_symbol = 'INT'
+signal_symbol = 'SIG'
+symbol = 'E'
+
+format = ' [$symbol($maybe_int) ]($style)'
+
+[character]
+format = '$symbol '
+success_symbol = '[>](bold)'
+error_symbol = '[>](bold bright-yellow)'

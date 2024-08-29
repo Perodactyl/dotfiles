@@ -24,4 +24,12 @@ if [ -f ~/.bash_path ]; then
 . ~/.bash_path
 fi
 
+if [ $TERM == "linux" ]; then
+	export STARSHIP_CONFIG="/home/peter/.config/starship.nounicode.toml"
+fi
+
 eval "$(starship init bash)"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
