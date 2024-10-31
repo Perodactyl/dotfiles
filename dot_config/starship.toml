@@ -29,7 +29,7 @@ symbol = ''
 
 [directory]
 style = 'blue'
-read_only_style = 'bg:$style fg:#ff3366'
+read_only_style = 'bg:prev_bg fg:#ff3366'
 use_os_path_sep = false
 truncation_length = 4
 #truncation_symbol = "…/"

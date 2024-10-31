@@ -7,6 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+    	"hyprland/submap",
         "hyprland/window",
         // "hyprland/scratchpad",
         "custom/media"
@@ -34,6 +35,9 @@
         
         // "custom/power"
     ],
+    "hyprland/submap": {
+    	"format": "[{}]"
+    },
     // Modules configuration
     // "hyprland/workspaces": {
     //     "disable-scroll": true,
@@ -189,8 +193,9 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
-    }
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
     // "custom/media": {
     //     "format": "{icon} {}",
     //     "return-type": "json",

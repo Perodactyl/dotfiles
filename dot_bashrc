@@ -26,7 +26,13 @@ fi
 
 if [ $TERM == "linux" ]; then
 	export STARSHIP_CONFIG="/home/peter/.config/starship.nounicode.toml"
+	neofetch
+else
+	export STARSHIP_CONFIG="/home/peter/.config/starship.toml"
 fi
+#if [ $TERM == "xterm-kitty" ]; then
+#	neofetch
+#fi
 
 eval "$(starship init bash)"
 

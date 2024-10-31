@@ -2,6 +2,8 @@
 [keybindings]
 [profiles]
   [[default]]
+    font = FiraCode+ UbuntuMono Nerd Font 20
+    use_system_font = False
   [[not default]]
     background_color = "#002b36"
     cursor_shape = ibeam

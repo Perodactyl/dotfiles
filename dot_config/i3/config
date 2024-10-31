@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font 'Ubuntu Mono':10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -198,4 +198,16 @@ mode "Spacebar to Exit" {
 }
 bindsym $mod+BackSpace mode "Spacebar to Exit"
 
-exec_always --no-startup-id "~/.i3rc"
+exec --no-startup-id "~/.i3rc"
+exec_always --no-startup-id "~/.i3load"
+
+# bar {
+# 	status_command node ~/.config/i3/bar.js status
+# 	# workspace_command node ~/.config/i3/bar.js workspace
+# 	mode dock
+# 	position top
+# 	tray_output HDMI-1-0
+# 	font pango:UbuntuMono Nerd Font, monospace
+# }
+
+for_window [class="steam"] floating enable

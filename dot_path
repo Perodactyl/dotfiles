@@ -1,4 +1,22 @@
 # Global PATH file.
 
 # ~/bin (includes chezmoi)
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# ~/bin/go (Go installed applications)
+export PATH="$HOME/bin/go:$PATH"
+export GOBIN="$HOME/bin/go"
+
+# Bun runtime
+export PATH="$HOME/.bun/bin:$PATH"
+
+# Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Playdate SDK
+export PLAYDATE_SDK_PATH="$HOME/Code/PlaydateSDK-2.5.0"
+export PLAYDATE_LIB_PATH="$HOME/Code/PlaydateSDK-2.5.0/CoreLibs"
+export PATH="$HOME/Code/PlaydateSDK-2.5.0/bin:$PATH"
+
+# CEdev SDK
+export PATH="$HOME/Code/CE/CEdev/bin:$PATH"

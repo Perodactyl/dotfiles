@@ -1,7 +1,7 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 format = """
-$shell$username $directory$jobs$status$character
+$shell$username $git_branch$directory$jobs$status$character
 """
 right_format = ''
 
@@ -32,6 +32,10 @@ read_only_style = 'red bold'
 format = '[$path]($style)[$read_only]($read_only_style)'
 [directory.substitutions]
 "Downloads" = ""
+
+[git_branch]
+style="bright-yellow bold"
+format="[git $branch/]($style)"
 
 [jobs]
 symbol = 'j'
