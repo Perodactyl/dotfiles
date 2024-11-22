@@ -1,4 +1,5 @@
 {
     "colorscheme": "Pero",
-    "mkparents": true
+    "mkparents": true,
+    "tabstospaces": true
 }

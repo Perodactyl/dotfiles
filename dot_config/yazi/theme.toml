@@ -1,0 +1,17 @@
+[filetype]
+rules = [
+  { name = "*/", fg = "#ffcc22" }
+]
+
+[status]
+
+separator_open = ""
+separator_close = ""
+
+mode_normal = { bg = "#dd9911", bold = true }
+
+permissions_t = { bold = true, fg = "#aaff00" }
+permissions_r = { fg = "#ddff11" }
+permissions_w = { fg = "#ff9911", bold = true }
+permissions_x = { fg = "#dd00ff", bold = true }
+permissions_s = { fg = "#888899", bold = true }
